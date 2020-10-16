@@ -1,0 +1,55 @@
+@function tint($color, $percentage) {
+  @return mix(white, $color, $percentage);
+}
+
+.calendar {
+  width: fit-content;
+  margin: auto;
+  .top {
+    display: flex;
+    justify-content: space-between;
+
+    .arrow {
+      margin-left: 11px;
+      margin-right: 11px;
+      cursor: default;
+    }
+  }
+  .calendarCell {
+    width: 40px;
+    height: 40px;
+    box-sizing: border-box;
+    font-size: 0.8em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: grey;
+    cursor: default;
+
+    &.selectable {
+      // background: orange;
+      border-radius: 100%;
+      color: black;
+      cursor: default;
+      &:hover {
+        background: rgba(139, 139, 139, 0.3);
+      }
+    }
+
+    &.today {
+      color: white;
+      border-radius: 100%;
+      background: green;
+      &:hover {
+        background: tint(green, 25%);
+      }
+    }
+
+    &.selected {
+      background: orange;
+      &:hover {
+        background: tint(orange, 25%);
+      }
+    }
+  }
+}
